@@ -38,7 +38,7 @@ public class RCPGame {
 				if (valueStore[i].equals("X")) {
 					continue;
 				}
-				valueStore[i+player.length] = cpu[i].valueRCP();
+				valueStore[i+player.length] = cpu[i].trans();
 			}
 			
 			int cntR, cntS, cntP;
@@ -58,6 +58,44 @@ public class RCPGame {
 			if ((cntR > 0 && cntS > 0 && cntP > 0) || (cntR == 0 && cntS == 0) || (cntR == 0 && cntP == 0) || (cntS == 0 && cntP == 0)) {
 				System.out.println("비겼습니다");
 			}
+			
+			else if (cntR == 0) {
+				for (int i = 0; i < player.length; i++) {
+					System.out.println(i+"번째 플레이어: "+valueStore[i]);
+				}
+				for (int i = 0; i < cpu.length; i++) {
+					System.out.println(i+"번째 cpu: "+valueStore[i+player.length]);
+				}
+				
+				for (int i = 0; i < player.length; i++) {
+					if (player[i].rcp.equals("가위")) {
+						continue;
+					}
+					player[i].checkX = valueStore[i] = "X";
+				}
+				
+				for (int i = 0; i < cpu.length; i++) {
+					if (cpu[i].rcp.equals("가위")) {
+						continue;
+					}
+					cpu[i].checkX = valueStore[i+player.length] = "X";
+				}
+				
+				for (int i = 0; i < player.length; i++) {
+					if (player[i].checkX.equals("X")) {	//조심
+						continue;
+					}
+					System.out.println(i+"번째 플레이어가 이겼습니다");
+				}
+				
+				for (int i = 0; i < cpu.length; i++) {
+					if (cpu[i].checkX.equals("X")) {
+						continue;
+					}
+					System.out.println(i+"번째 cpu가 이겼습니다");
+				}
+			}
+			
 			else if (cntS == 0) {
 				for (int i = 0; i < player.length; i++) {
 					System.out.println(i+"번째 플레이어: "+valueStore[i]);
