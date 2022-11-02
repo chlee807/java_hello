@@ -1,7 +1,8 @@
 package chapter10;
 
 public class RCPcpu {
-	private String rcp;
+	String rcp;
+	String checkX = "initialValue";
 	public String trans() {
 		int num = (int)Math.floor(3*Math.random());
 		switch (num) {

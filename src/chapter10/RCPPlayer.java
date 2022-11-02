@@ -3,7 +3,7 @@ package chapter10;
 import java.util.Scanner;
 
 public class RCPPlayer {
-	String checkX;
+	String checkX = "initialValue";
 	String rcp;
 	public String valueRCP() {
 		Scanner scan = new Scanner(System.in);

@@ -23,7 +23,7 @@ public class RCPGame {
 		}
 		
 		String[] valueStore = new String[PLAYER_NUM+CPU_NUM];
-		Arrays.fill(valueStore,"초기화");
+		Arrays.fill(valueStore,"initialValue");
 		String confirmMessage;
 		for(;;) {
 			for (int i = 0; i < player.length; i++) {
